@@ -64,12 +64,16 @@ TODO
 
 * Use PATH_MAX everywhere I can to put limits on loops etc.
 
+* Handle malloc errors properly/at all. Look into other functions that could
+  fail and handle them.
+
 * Take in optional string_lengths, similar to strlen and strnlen.
 
 * Confirm that ``]`` is not being escaped correctly,
+
   - if not working, fix escaping ``]`` properly after ``[``.
 
-* Write a function that will insert into string inplace so no need for extra
+* Write a function that will insert into string in-place so no need for extra
   malloc.
 
 * Investigate more efficient algorithms (may need to ask external help for
@@ -78,9 +82,24 @@ TODO
 * Investigate whether I should not escape if already escaped.
 
 * Implement filtering out specific characters using flags
+
   - i.e. don't escape ``?`` if passing in ``NO_QUESTION_MARK`` flag
 
 License
 =======
 
 LGPLv3
+
+Brief Note
+==========
+
+This library isn't actually particularly useful, nor is the code anything to be
+amazed by. It's boring, simple, and not algorithmically complex C. This code
+and repo is more a way for me to get backing into some C programming (haven't
+done any in ~3 years) and also learn how compiling and using different types of
+libraries work. Hopefully in future this repo will form a good basis for me (or
+even someone else) next (hopefully more useful) library I decide to sink my
+teeth into.
+
+Also may look into "porting" to windows and/or macOS, because I feel like
+that'd also be something worth trying.
