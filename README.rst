@@ -46,16 +46,15 @@ Compile Shared Libraries
 ------------------------
 
 Run the standard:
+
 .. code-block:: bash
 
     make
-
-    # optional
-
     make install
 
-Then feel free to link in using the usual methods. Include the header file in
-your project: ``#include <globescape.h>``.
+This will place the headers and shared libraries in $(DESTDIR)/usr/lib and
+$(DESTDIR)/usr/include respectively. Then feel free to link in using the usual
+methods. Include the header file in your project: ``#include <globescape.h>``.
 
 TODO
 ====
