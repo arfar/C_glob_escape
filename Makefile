@@ -9,9 +9,12 @@ DEPS = globescape.h
 
 LIBS = libglobescape.a libglobescape.so
 
-all: $(LIBS) globescape.o
+all: $(LIBS) globescape.o example
 
 libs: $(LIBS)
+
+example: example.o globescape.o $(DEPS)
+	$(CC) -o $@ $^
 
 libglobescape.a: globescape.o
 	ar rs $@ $<
@@ -33,6 +36,6 @@ install:
 	
 
 clean:
-	rm -f $(LIBS) *.o *.lo
+	rm -f $(LIBS) *.o *.lo example
 
 .PHONY: all libs clean

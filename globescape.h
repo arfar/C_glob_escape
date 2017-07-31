@@ -19,4 +19,7 @@
 char *
 globescape(const char * string_to_escape);
 
+char *
+globescape_buffer(const char * string_to_escape, char * escaped_string);
+
 #endif /* MY_GLOBESCAPE_HEADER */

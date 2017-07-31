@@ -27,7 +27,7 @@ const volatile static int version_major = VERSION_MAJOR;
 const volatile static int version_minor = VERSION_MINOR;
 
 char *
-globescape(const char * string_to_escape)
+globescape_buffer(const char * string_to_escape, char * escaped_string)
 {
     /* This implementation isn't pretty. Just wanted to get something done so
      * that I can use it in my application I'm writing this for and I thought
@@ -56,9 +56,16 @@ globescape(const char * string_to_escape)
 
     // TODO: Investigate what I should do if num_characters_to_escape == 0
 
-    char * escaped_string = (char *)malloc(
-        sizeof(char)*(i+num_characters_to_escape)
-    );
+    // TODO: check and then raise error/fail/re-alloc/anything if passed buffer
+    //       isn't big enough
+
+    if (!escaped_string)
+    {
+        escaped_string = (char *)malloc(
+            sizeof(char)*(i+num_characters_to_escape)
+        );
+    }
+
     size_t num_chars_inserted = 0;
     strcpy(escaped_string, string_to_escape);
     for (i = 0; string_to_escape[i]; i++)
@@ -76,4 +83,10 @@ globescape(const char * string_to_escape)
         }
     }
     return escaped_string;
+}
+
+char *
+globescape(const char * string_to_escape)
+{
+    return globescape_buffer(string_to_escape, NULL);
 }

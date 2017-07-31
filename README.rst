@@ -69,6 +69,8 @@ TODO
 * Investigate more efficient algorithms (may need to ask external help for
   this part, I don't have much experience with algorithms generally).
 
+* Investigate whether I should not escape if already escaped.
+
 * Implement filtering out specific characters using flags
   - i.e. don't escape ``?`` if passing in ``NO_QUESTION_MARK`` flag
 
