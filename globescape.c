@@ -90,3 +90,14 @@ globescape(const char * string_to_escape)
 {
     return globescape_buffer(string_to_escape, NULL);
 }
+
+char *
+globescape_inplace(char * string_to_escape)
+{
+    /* This implementation is a placeholder */
+    /* TODO: Actually write an in-place version */
+    char * buffer = globescape_buffer(string_to_escape, NULL);
+    strcpy(string_to_escape, buffer);
+    free(buffer);
+    return string_to_escape;
+}

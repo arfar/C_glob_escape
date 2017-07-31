@@ -19,7 +19,11 @@
 char *
 globescape(const char * string_to_escape);
 
+/* Buffers cannot overlap */
 char *
 globescape_buffer(const char * string_to_escape, char * escaped_string);
+
+char *
+globescape_inplace(char * string_to_escape);
 
 #endif /* MY_GLOBESCAPE_HEADER */

@@ -1,6 +1,7 @@
 #include "globescape.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
     
 int
 main (void)
@@ -31,4 +32,24 @@ main (void)
     char * buffer = malloc(sizeof(char)*100);
     globescape_buffer((string_to_escape = "\\[test\\]"), buffer);
     printf("%s -> %s\n", string_to_escape, buffer);
+
+    strcpy(buffer, "test");
+    string_escaped = globescape_inplace(buffer);
+    printf("%s -> %s\n", "test", buffer);
+
+    strcpy(buffer, "[]test");
+    string_escaped = globescape_inplace(buffer);
+    printf("%s -> %s\n", "[]test", buffer);
+
+    strcpy(buffer, "test[]");
+    string_escaped = globescape_inplace(buffer);
+    printf("%s -> %s\n", "test[]", buffer);
+
+    strcpy(buffer, "[test]");
+    string_escaped = globescape_inplace(buffer);
+    printf("%s -> %s\n", "[test]", buffer);
+
+    strcpy(buffer, "\\[test\\]");
+    string_escaped = globescape_inplace(buffer);
+    printf("%s -> %s\n", "\\[test\\]", buffer);
 }

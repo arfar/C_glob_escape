@@ -63,8 +63,15 @@ TODO
 
 * Write tests.
 
+* Use PATH_MAX everywhere I can to put limits on loops etc.
+
+* Take in optional string_lengths, similar to strlen and strnlen.
+
 * Confirm that ``]`` is not being escaped correctly,
   - if not working, fix escaping ``]`` properly after ``[``.
+
+* Write a function that will insert into string inplace so no need for extra
+  malloc.
 
 * Investigate more efficient algorithms (may need to ask external help for
   this part, I don't have much experience with algorithms generally).
