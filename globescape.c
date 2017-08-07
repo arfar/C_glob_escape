@@ -47,7 +47,6 @@ globescape_buffer(const char * string_to_escape, char * escaped_string)
         {
             case '?':
             case '[':
-            case ']':
             case '*':
                 num_characters_to_escape++;
                 break;
@@ -74,7 +73,6 @@ globescape_buffer(const char * string_to_escape, char * escaped_string)
         {
             case '?':
             case '[':
-            case ']':
             case '*':
                 escaped_string[i+num_chars_inserted] = '\\';
                 num_chars_inserted++;

@@ -9,11 +9,11 @@ DEPS = globescape.h
 
 LIBS = libglobescape.a libglobescape.so
 
-all: $(LIBS) globescape.o example
+all: $(LIBS) globescape.o test
 
 libs: $(LIBS)
 
-example: example.o globescape.o $(DEPS)
+test: test.o globescape.o $(DEPS)
 	$(CC) -o $@ $^
 
 libglobescape.a: globescape.o
@@ -33,9 +33,11 @@ install:
 	install -o root -d $(DESTDIR)/usr/include
 	install -p -o root $(LIBS) $(DESTDIR)/usr/lib
 	install -p -o root globescape.h $(DESTDIR)/usr/include
-	
+
+run_tests: test
+	./test
 
 clean:
-	rm -f $(LIBS) *.o *.lo example
+	rm -f $(LIBS) *.o *.lo test
 
 .PHONY: all libs clean

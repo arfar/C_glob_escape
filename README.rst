@@ -15,11 +15,14 @@ Usage
     char string_to_escape[] = "/test/hello [1999]"
     char *escaped_string = globescape(string_to_escape);
     printf("%s", escaped_string);
-    /* /test/hello \[1999\] */
+    /* /test/hello \[1999] */
 
     // DO SOMETHING WITH STRING
 
     free(escaped_string);
+
+.. role:: strike
+    :class: strike
 
 Install
 =======
@@ -60,18 +63,12 @@ TODO
 ====
 (roughly in order of importance)
 
-* Write tests.
-
 * Use PATH_MAX everywhere I can to put limits on loops etc.
 
 * Handle malloc errors properly/at all. Look into other functions that could
   fail and handle them.
 
 * Take in optional string_lengths, similar to strlen and strnlen.
-
-* Confirm that ``]`` is not being escaped correctly,
-
-  - if not working, fix escaping ``]`` properly after ``[``.
 
 * Write a function that will insert into string in-place so no need for extra
   malloc.
